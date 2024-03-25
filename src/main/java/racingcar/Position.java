@@ -10,4 +10,12 @@ public class Position {
         }
         this.value = value;
     }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void moveFront() {
+        value++;
+    }
 }
