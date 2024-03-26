@@ -2,11 +2,14 @@ package racingcar.model;
 
 public class Position {
 
+    private static final int ZERO = 0;
+    private static final String POSITION_UNDER_ZERO_MESSAGE = "위치는 음수일 수 없습니다.";
+
     private int value;
 
     public Position(final int value) {
-        if (value < 0) {
-            throw new IllegalArgumentException("위치는 음수일 수 없습니다.");
+        if (value < ZERO) {
+            throw new IllegalArgumentException(POSITION_UNDER_ZERO_MESSAGE);
         }
         this.value = value;
     }
