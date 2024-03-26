@@ -50,9 +50,9 @@ class CarsTest {
 
         // then
         assertAll(
-                () -> assertThat(cars.getWinnerNames()).hasSize(2),
-                () -> assertThat(cars.getWinnerNames()).contains("lucas"),
-                () -> assertThat(cars.getWinnerNames()).contains("dino")
+                () -> assertThat(cars.getWinners().getNames()).hasSize(2),
+                () -> assertThat(cars.getWinners().getNames()).contains("lucas"),
+                () -> assertThat(cars.getWinners().getNames()).contains("dino")
         );
     }
 }

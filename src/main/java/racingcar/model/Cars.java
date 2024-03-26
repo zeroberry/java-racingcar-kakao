@@ -23,14 +23,14 @@ public class Cars {
         }
     }
 
-    public List<String> getWinnerNames() {
-        return values.stream()
+    public Winners getWinners() {
+        return new Winners(values.stream()
                 .max(Comparator.comparingInt(Car::getPosition))
                 .map(car -> values.stream()
                         .filter(c -> c.getPosition() == car.getPosition())
                         .map(Car::getName)
                         .collect(Collectors.toUnmodifiableList()))
-                .orElseThrow(() -> new IllegalArgumentException("올바르지 않은 자동차 구성입니다."));
+                .orElseThrow(() -> new IllegalArgumentException("올바르지 않은 자동차 구성입니다.")));
     }
 
     public List<Car> getValues() {
