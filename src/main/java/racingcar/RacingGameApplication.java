@@ -14,7 +14,7 @@ public class RacingGameApplication {
 
     private static RacingGame initializeGame() {
         final String carNames = InputView.readCarNames();
-        final int stepCount = InputView.readTurnCount();
+        final int stepCount = InputView.readStepCount();
         return new RacingGame(carNames, new RandomNumberGenerator(), stepCount);
     }
 

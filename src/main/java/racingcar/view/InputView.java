@@ -16,7 +16,7 @@ public class InputView {
         return SCANNER.nextLine();
     }
 
-    public static int readTurnCount() {
+    public static int readStepCount() {
         System.out.println(INPUT_STEP_COUNT_MESSAGE);
         return SCANNER.nextInt();
     }
