@@ -8,10 +8,14 @@ public class Position {
     private int value;
 
     public Position(final int value) {
+        checkInvalidPosition(value);
+        this.value = value;
+    }
+
+    private void checkInvalidPosition(final int value) {
         if (value < ZERO) {
             throw new IllegalArgumentException(POSITION_UNDER_ZERO_MESSAGE);
         }
-        this.value = value;
     }
 
     public int getValue() {

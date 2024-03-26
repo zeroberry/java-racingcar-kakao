@@ -20,9 +20,13 @@ public class Cars {
 
     public void step(final NumberGenerator numberGenerator) {
         for (final Car car : values) {
-            if (CarAction.isMove(CarAction.generate(numberGenerator.generate()))) {
-                car.move();
-            }
+            moveOrStandCar(numberGenerator, car);
+        }
+    }
+
+    private void moveOrStandCar(final NumberGenerator numberGenerator, final Car car) {
+        if (CarAction.isMove(CarAction.generate(numberGenerator.generate()))) {
+            car.move();
         }
     }
 

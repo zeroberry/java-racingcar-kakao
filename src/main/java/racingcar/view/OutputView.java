@@ -16,7 +16,7 @@ public class OutputView {
     private OutputView() {
     }
 
-    public static void printPlayStart() {
+    public static void printPlayTitle() {
         System.out.println(PLAY_RESULT_MESSAGE);
     }
 

@@ -10,10 +10,14 @@ public class Winners {
     private final List<Name> names;
 
     public Winners(final List<Name> winnerNames) {
+        checkEmptyWinners(winnerNames);
+        this.names = winnerNames;
+    }
+
+    private void checkEmptyWinners(final List<Name> winnerNames) {
         if (winnerNames.isEmpty()) {
             throw new IllegalArgumentException(EMPTY_WINNER_MESSAGE);
         }
-        this.names = winnerNames;
     }
 
     public List<String> getNames() {

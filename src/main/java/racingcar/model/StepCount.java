@@ -6,14 +6,17 @@ public class StepCount {
     private static final int ZERO = 0;
     private static final int ONE = 1;
 
-
     private final int count;
 
     public StepCount(final int inputCount) {
+        checkInvalidStepCount(inputCount);
+        this.count = inputCount;
+    }
+
+    private void checkInvalidStepCount(final int inputCount) {
         if (inputCount < ZERO) {
             throw new IllegalArgumentException(COUNT_UNDER_ZERO_MESSAGE);
         }
-        this.count = inputCount;
     }
 
     public StepCount decrease() {
