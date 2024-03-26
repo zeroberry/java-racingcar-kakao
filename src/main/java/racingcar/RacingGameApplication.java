@@ -8,11 +8,10 @@ public class RacingGameApplication {
 
     public static void main(String[] args) {
         final String carNames = InputView.readCarNames();
-        int roundCount = InputView.readTurnCount();
-
-        final RacingGame racingGame = new RacingGame(carNames, new RandomNumberGenerator());
+        int stepCount = InputView.readTurnCount();
+        final RacingGame racingGame = new RacingGame(carNames, new RandomNumberGenerator(), stepCount);
         OutputView.printPlayStart();
-        for (int i = 0; i < roundCount; i++) {
+        while (!racingGame.isEnd()) {
             racingGame.play();
             OutputView.printRoundResult(racingGame.getCars());
         }
