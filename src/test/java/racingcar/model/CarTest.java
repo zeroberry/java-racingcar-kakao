@@ -12,11 +12,12 @@ class CarTest {
     void moveTest() {
         // given
         final Car car = Car.makeNewCar("lucas");
+        final Position expected = new Position(1);
 
         // when
         car.move();
 
         // then
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).usingRecursiveComparison().isEqualTo(expected);
     }
 }

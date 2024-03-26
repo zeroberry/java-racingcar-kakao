@@ -20,8 +20,8 @@ public class Car {
         position.moveFront();
     }
 
-    public int getPosition() {
-        return position.getValue();
+    public Position getPosition() {
+        return position;
     }
 
     public Name getName() {

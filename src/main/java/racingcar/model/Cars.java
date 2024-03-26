@@ -32,9 +32,9 @@ public class Cars {
 
     public Winners getWinners() {
         return new Winners(values.stream()
-                .max(Comparator.comparingInt(Car::getPosition))
+                .max(Comparator.comparingInt(car -> car.getPosition().getValue()))
                 .map(car -> values.stream()
-                        .filter(c -> c.getPosition() == car.getPosition())
+                        .filter(c -> c.getPosition().getValue() == car.getPosition().getValue())
                         .map(Car::getName)
                         .collect(Collectors.toUnmodifiableList()))
                 .orElseThrow(() -> new IllegalArgumentException(INVALID_CARS_STATE_MESSAGE)));

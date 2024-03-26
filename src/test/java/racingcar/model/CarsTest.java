@@ -25,6 +25,8 @@ class CarsTest {
     void stepTest() {
         // given
         final Cars cars = new Cars("lucas,dino,eve,helen");
+        final Position zreoPosition = new Position(0);
+        final Position onePosition = new Position(1);
 
         // when
         cars.step(new CustomNumberGenerator(List.of(9, 4, 2, 0)));
@@ -32,10 +34,10 @@ class CarsTest {
 
         // then
         assertAll(
-                () -> assertThat(carsValues.get(0).getPosition()).isEqualTo(1),
-                () -> assertThat(carsValues.get(1).getPosition()).isEqualTo(1),
-                () -> assertThat(carsValues.get(2).getPosition()).isZero(),
-                () -> assertThat(carsValues.get(3).getPosition()).isZero()
+                () -> assertThat(carsValues.get(0).getPosition()).usingRecursiveComparison().isEqualTo(onePosition),
+                () -> assertThat(carsValues.get(1).getPosition()).usingRecursiveComparison().isEqualTo(onePosition),
+                () -> assertThat(carsValues.get(2).getPosition()).usingRecursiveComparison().isEqualTo(zreoPosition),
+                () -> assertThat(carsValues.get(3).getPosition()).usingRecursiveComparison().isEqualTo(zreoPosition)
         );
     }
 
