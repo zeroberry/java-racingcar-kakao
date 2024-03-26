@@ -1,7 +1,6 @@
 package racingcar.view;
 
-import racingcar.model.Car;
-import racingcar.model.Cars;
+import racingcar.CarInfo;
 
 import java.util.List;
 
@@ -20,16 +19,14 @@ public class OutputView {
         System.out.println(PLAY_RESULT_MESSAGE);
     }
 
-    public static void printRoundResult(Cars cars) {
-        for (Car car : cars.getValues()) {
-            StringBuilder carStatus = new StringBuilder(car.getName() + RESULT_SEPARATOR);
-            carStatus.append(MOVING_BAR.repeat(car.getPosition()));
-            System.out.println(carStatus);
+    public static void printRoundResult(final List<CarInfo> carInfos) {
+        for (final CarInfo carInfo : carInfos) {
+            System.out.println(carInfo.getName() + RESULT_SEPARATOR + MOVING_BAR.repeat(carInfo.getPosition()));
         }
         System.out.println();
     }
 
-    public static void printWinner(List<String> winnerNames) {
+    public static void printWinner(final List<String> winnerNames) {
         System.out.println(String.join(WINNER_JOINING_DELIMITER, winnerNames) + FINAL_RESULT_MESSAGE);
     }
 }

@@ -5,6 +5,7 @@ import racingcar.model.Cars;
 import racingcar.model.StepCount;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -27,8 +28,10 @@ public class RacingGame {
         return stepCount.isZero();
     }
 
-    public Cars getCars() {
-        return cars;
+    public List<CarInfo> extractCarInfos() {
+        return cars.getValues().stream()
+                .map(CarInfo::new)
+                .collect(Collectors.toUnmodifiableList());
     }
 
     public List<String> getWinnerNames() {
