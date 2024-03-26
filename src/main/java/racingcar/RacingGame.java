@@ -1,30 +1,24 @@
 package racingcar;
 
-import racingcar.model.Car;
+import racingcar.model.NumberGenerator;
 import racingcar.model.Cars;
 
 import java.util.List;
-import java.util.Random;
 
 public class RacingGame {
 
     private final Cars cars;
+    private final NumberGenerator numberGenerator;
 
-    private static final Random RANDOM = new Random();
-
-    public RacingGame(final String inputNames) {
+    public RacingGame(final String inputNames, final NumberGenerator numberGenerator) {
         this.cars = new Cars(inputNames);
+        this.numberGenerator = numberGenerator;
     }
 
-    public void moveCars() {
-        for (final Car car : cars.getValues()) {
-            car.move(numberGenerator());
-        }
+    public void play() {
+        cars.step(numberGenerator);
     }
 
-    private int numberGenerator() {
-        return RANDOM.nextInt(10);
-    }
 
     public Cars getCars() {
         return cars;
