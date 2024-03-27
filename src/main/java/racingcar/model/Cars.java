@@ -31,13 +31,16 @@ public class Cars {
     }
 
     public Winners getWinners() {
-        return new Winners(values.stream()
-                .max(Comparator.comparingInt(car -> car.getPosition().getValue()))
-                .map(car -> values.stream()
-                        .filter(c -> c.getPosition().getValue() == car.getPosition().getValue())
+        Car maxPositionCar = values.stream()
+                .max(Comparator.comparing(Car::getPosition))
+                .orElseThrow(() -> new IllegalArgumentException(INVALID_CARS_STATE_MESSAGE));
+
+        return new Winners(
+                values.stream()
+                        .filter(c -> c.getPosition().isAt(maxPositionCar.getPosition()))
                         .map(Car::getName)
-                        .collect(Collectors.toUnmodifiableList()))
-                .orElseThrow(() -> new IllegalArgumentException(INVALID_CARS_STATE_MESSAGE)));
+                        .collect(Collectors.toUnmodifiableList())
+        );
     }
 
     public List<Car> getValues() {

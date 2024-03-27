@@ -1,6 +1,6 @@
 package racingcar.model;
 
-public class Position {
+public class Position implements Comparable<Position> {
 
     private static final int ZERO = 0;
     private static final String POSITION_UNDER_ZERO_MESSAGE = "위치는 음수일 수 없습니다.";
@@ -24,5 +24,14 @@ public class Position {
 
     public void moveFront() {
         value++;
+    }
+
+    public boolean isAt(Position o) {
+        return o.getValue() == value;
+    }
+
+    @Override
+    public int compareTo(Position o) {
+        return Integer.compare(value, o.getValue());
     }
 }
