@@ -13,8 +13,8 @@ public class Name {
     private final String value;
 
     public Name(final String inputName) {
-        checkMaxNameLength(inputName);
         checkEmptyName(inputName);
+        checkMaxNameLength(inputName);
         checkSpaceAtEdge(inputName);
         this.value = inputName;
     }
@@ -26,7 +26,7 @@ public class Name {
     }
 
     private void checkEmptyName(final String inputName) {
-        if (inputName.isEmpty()) {
+        if (inputName == null || inputName.isEmpty()) {
             throw new IllegalArgumentException(NOT_ZERO_LENGTH_MESSAGE);
         }
     }

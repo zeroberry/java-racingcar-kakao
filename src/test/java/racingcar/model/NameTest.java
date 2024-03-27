@@ -3,6 +3,7 @@ package racingcar.model;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.model.Name;
 
@@ -37,11 +38,9 @@ class NameTest {
     }
 
     @DisplayName("이름의 길이가 0이면 예외 처리한다.")
-    @Test
-    void create_FailWhenLengthIsZero() {
-        // given
-        final String inputName = "";
-
+    @ParameterizedTest
+    @NullAndEmptySource
+    void create_FailWhenLengthIsZero(String inputName) {
         // when & then
         assertThatThrownBy(() -> new Name(inputName))
                 .isInstanceOf(IllegalArgumentException.class)
