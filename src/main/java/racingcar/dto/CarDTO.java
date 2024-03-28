@@ -1,15 +1,15 @@
-package racingcar;
+package racingcar.dto;
 
 import racingcar.model.Car;
 import racingcar.model.Name;
 import racingcar.model.Position;
 
-public class CarInfo {
+public class CarDTO {
 
     private final Name name;
     private final Position position;
 
-    public CarInfo(final Car car) {
+    public CarDTO(final Car car) {
         this.name = car.getName();
         this.position = car.getPosition();
     }

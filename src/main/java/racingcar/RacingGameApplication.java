@@ -22,7 +22,7 @@ public class RacingGameApplication {
         OutputView.printPlayTitle();
         while (!racingGame.isEnd()) {
             racingGame.play();
-            OutputView.printRoundResult(racingGame.extractCarInfos());
+            OutputView.printRoundResult(racingGame.extractCarDTOs());
         }
     }
 }
