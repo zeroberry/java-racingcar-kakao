@@ -1,8 +1,12 @@
 package racingcar;
 
+import racingcar.dto.CarDTO;
+import racingcar.model.RacingGame;
 import racingcar.model.RandomCarMoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.stream.Collectors;
 
 public class RacingGameApplication {
 
@@ -22,7 +26,7 @@ public class RacingGameApplication {
         OutputView.printPlayTitle();
         while (!racingGame.isEnd()) {
             racingGame.play();
-            OutputView.printRoundResult(racingGame.extractCarDTOs());
+            OutputView.printRoundResult(racingGame.getCars().stream().map(CarDTO::from).collect(Collectors.toUnmodifiableList()));
         }
     }
 }

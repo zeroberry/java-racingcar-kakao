@@ -1,12 +1,6 @@
-package racingcar;
-
-import racingcar.dto.CarDTO;
-import racingcar.model.CarMoveStrategy;
-import racingcar.model.Cars;
-import racingcar.model.StepCount;
+package racingcar.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -29,10 +23,8 @@ public class RacingGame {
         return stepCount.isZero();
     }
 
-    public List<CarDTO> extractCarDTOs() {
-        return cars.getValues().stream()
-                .map(CarDTO::new)
-                .collect(Collectors.toUnmodifiableList());
+    public List<Car> getCars() {
+        return cars.getValues();
     }
 
     public List<String> getWinnerNames() {
