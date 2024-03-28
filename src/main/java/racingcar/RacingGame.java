@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.dto.CarDTO;
-import racingcar.model.NumberGenerator;
+import racingcar.model.CarMoveStrategy;
 import racingcar.model.Cars;
 import racingcar.model.StepCount;
 
@@ -11,18 +11,18 @@ import java.util.stream.Collectors;
 public class RacingGame {
 
     private final Cars cars;
-    private final NumberGenerator numberGenerator;
+    private final CarMoveStrategy carMoveStrategy;
     private StepCount stepCount;
 
-    public RacingGame(final String inputNames, final NumberGenerator numberGenerator, final int inputCount) {
+    public RacingGame(final String inputNames, final CarMoveStrategy carMoveStrategy, final int inputCount) {
         this.cars = new Cars(inputNames);
-        this.numberGenerator = numberGenerator;
+        this.carMoveStrategy = carMoveStrategy;
         this.stepCount = new StepCount(inputCount);
     }
 
     public void play() {
         stepCount = stepCount.decrease();
-        cars.step(numberGenerator);
+        cars.step(carMoveStrategy);
     }
 
     public boolean isEnd() {

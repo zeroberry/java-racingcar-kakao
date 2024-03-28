@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.model.RandomNumberGenerator;
+import racingcar.model.RandomCarMoveStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -15,7 +15,7 @@ public class RacingGameApplication {
     private static RacingGame initializeGame() {
         final String carNames = InputView.readCarNames();
         final int stepCount = InputView.readStepCount();
-        return new RacingGame(carNames, new RandomNumberGenerator(), stepCount);
+        return new RacingGame(carNames, new RandomCarMoveStrategy(), stepCount);
     }
 
     private static void runGame(final RacingGame racingGame) {
