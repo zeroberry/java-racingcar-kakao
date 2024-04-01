@@ -3,7 +3,7 @@ package racingcar.model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomCarMoveStrategy implements CarMoveStrategy{
+public class CustomCarMoveStrategy implements CarMoveStrategy {
 
     private final LinkedList<Boolean> moves;
 
